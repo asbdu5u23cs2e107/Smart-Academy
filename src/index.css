@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  @apply bg-slate-950 text-slate-100 antialiased overflow-x-hidden;
+  color: #374151;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF9FE;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E2E8F0;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #CBD5E1;
+}
+
+/* Glassmorphism utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(139, 92, 246, 0.08);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.03);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(139, 92, 246, 0.04);
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-500;
+}
+
+.btn-primary {
+  @apply px-5 py-2.5 rounded-lg font-bold bg-purple-600 hover:bg-purple-700 text-white shadow-md transition-all duration-200 active:scale-95;
+  color: #FFFFFF !important;
+}
+
+.btn-secondary {
+  @apply px-5 py-2.5 rounded-xl font-semibold bg-white border border-slate-700 hover:bg-slate-50 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0;
+  color: #4F46E5 !important;
+  border-color: #E2E8F0 !important;
+}
+
+/* Force dark text for headings and copy in light theme override */
+.text-white {
+  color: #111827 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #111827 !important;
+}
+
+/* Maintain white text on buttons, badges and active elements */
+.btn-primary, .btn-primary *, .badge, .badge *, .bg-purple-600 *, .bg-indigo-600 *, .bg-sky-500 *, .bg-emerald-500 *, .bg-emerald-600 * {
+  color: #FFFFFF !important;
+}
+
+.text-sky-400, .text-indigo-400, .text-purple-400 {
+  color: #7C3AED !important;
+}
+input, select, textarea {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+}
+

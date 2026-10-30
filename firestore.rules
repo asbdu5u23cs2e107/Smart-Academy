@@ -1,0 +1,52 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // =============================================================
+    // SwordNex / Smart Academy LMS Security Rules
+    // =============================================================
+
+    // 1. ACADEMIC RESOURCES (Notes, Videos, PPTs, Coding Files, Courses)
+    // Readable by all students & public visitors so the Resources Center
+    // and Course Catalog load without "Missing or insufficient permissions"
+    match /resources/{docId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    match /videos/{docId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    match /ppts/{docId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    match /codingFiles/{docId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    match /courses/{docId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // 2. USER & PROFILE COLLECTIONS
+    match /students/{studentId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    match /trainers/{trainerId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Default catch-all
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // =============================================================
+    // SwordNex / Smart Academy Storage Rules
+    // Allow public read and upload for course study resources
+    // =============================================================
+
+    match /notes/{allPaths=**} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    match /videos/{allPaths=**} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    match /ppts/{allPaths=**} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    match /codingFiles/{allPaths=**} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    match /{allPaths=**} {
+      allow read, write: if true;
+    }
+  }
+}
